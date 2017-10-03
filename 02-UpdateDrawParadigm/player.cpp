@@ -2,95 +2,126 @@
 #include <iostream>
 #include "sfwdraw.h"
 
+void Player::AddForce(float xSpeed, float ySpeed)
+{
+	x += xSpeed;
+	y += ySpeed;
+}
+
 void Player::update()
 {
-	
-	
-	if (y <= 500 && x <= 500 && y >= 150 && x >= 150)
+	// x = 775
+	// y = 575
+
+
+	// ATTACK
+	if (sfw::getKey(KeyDown) && isGrowing == false && isShirnking != true && cooldownPOWER != true )
 	{
-		if (sfw::getKey('W'))
+		isGrowing = true;
+	}
+	if (isGrowing == true)
+	{
+		circleSize += 5;
+		if (circleSize > 30)
 		{
-			y += 6;
-
-		}
-		if (sfw::getKey('S'))
-		{
-			y -= 6;
-
-		}
-		if (sfw::getKey('D'))
-		{
-			x += 6;
-
-		}
-		if (sfw::getKey('A'))
-		{
-			x -= 6;
-
-		}
-		if (sfw::getKey('Q') && ShootTrue == false)
-		{
-
-			ShotX = x;
-			ShotY = y;
-			ShotX2 = 400;
-			ShotY2 = 350;
-			shotSpeed = (((ShotX2 - ShotX)*(ShotX2 - ShotX) + (ShotY2 - ShotY)*(ShotY2 - ShotY))/2000);
-			ShootTrue = true;
-
-		}
-		if (ShootTrue == true)
-		{
-			if (ShotLen == 0)
-			{
-				sfw::playSound(sfw::loadSound("Pew_Pew-DKnight556-1379997159.wav"), false);
-			}
-			ShotY += shotSpeed;
-			ShotLen++;
-			if (ShotLen == 40)
-			{
-				ShootTrue = false;
-				ShotLen = 0;
-			}
+			isShirnking = true;
+			isGrowing = false;
 		}
 	}
-	else
+	if (isShirnking == true)
 	{
-		if (y < 500)
+		circleSize -= 5;
+		if (circleSize <= 10)
 		{
-
-			y++;
-
+			isShirnking = false;
 		}
-		 if (y > 150)
+		cooldownPOWER = true;
+	}
+	if (cooldownPOWER == true)
+	{
+		cooldown--;
+		if (cooldown == 0)
 		{
-
-			y--;
-
-		}
-		 if (x < 500)
-		{
-
-			x++;
-
-		}
-		 if (x > 150)
-		{
-
-			x--;
+			cooldown = 20;
+ 		cooldownPOWER = false;
 		}
 	}
-	std::cout << shotSpeed << std::endl;
+	
+
+
+	//Movement
+
+		if (sfw::getKey(KeyUp) && isJumping == false && isFalling != true)
+		{
+			isJumping = true;
+		}
+		if (isJumping == true)
+		{
+			y += 8;
+			if (y > 200)
+			{
+				isFalling = true;
+				isJumping = false;
+			}
+		}
+		if (isFalling == true)
+		{
+			y -= 8;
+			if (y <= 35)
+			{
+				isFalling = false;
+			}
+
+		}
+		if (sfw::getKey(KeyRight) && x <= 760)
+		{
+			x += xspeed;
+
+		}
+		if (sfw::getKey(KeyLeft) && x >= 40)
+		{
+			x -= xspeed;
+		}
+	
 }
 
 
 void Player::draw()
 { 
-	sfw::drawLine(x, y, 400 ,350);
-	sfw::drawCircle(x, y, 25);
-	if (ShootTrue == true)
-	{
-		
-		sfw::drawCircle(ShotX, ShotY, 10);
-	}
+	//top left     x25, y575  x775, y575
+	//bot right    x25, y25   x775, y25
+
+
+	// Make a line/Platform class
+	//create an array of lines/platforms
+	//loop through and draw them
+
+	//  BOT LEFT LINE
+	//             x1   y1   x2   y2
+	sfw::drawLine(115, 155, 275, 155);
+	//y 155
+
+	// MIDDLE LINE
+	//             x1   y1   x2   y2
+	sfw::drawLine(295, 295, 475, 295);
+	//y 295
+
+	// BOT RIGHT LINE
+	//             x1   y1   x2   y2
+	sfw::drawLine(475, 155, 675, 155);
+	// y 155
+
+
+	sfw::drawLine(25, 25, 775, 25);
+	sfw::drawLine(25, 25, 25, 575);
+	sfw::drawLine(775, 25, 775, 575);
+	sfw::drawLine(25, 575, 775, 575);
+
+
+
+
+	//sfw::drawCircle(x, y, 15);
+	sfw::drawLine(x, y-10, x, y+10);
+	sfw::drawLine(x-10, y, x+10, y);
+	sfw::drawCircle(x, y, circleSize);
 }

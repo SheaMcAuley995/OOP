@@ -7,17 +7,23 @@ public:
 	float x;
 	float y;
 
-	float shotSpeed = 0;
-	float ShotX;
-	float ShotY;
-	float ShotX2;
-	float ShotY2;
-	int ShotLen = 0;
-
-	bool ShootTrue = false;
-
-
+	char KeyUp;
+	char KeyDown;
+	char KeyRight;
+	char KeyLeft;
+	bool isJumping = false;
+	bool isFalling = false;
+	bool isGrowing = false;
+	bool isShirnking = false;
+	int cooldown = 1;
+	bool cooldownPOWER = false;
+	int circleSize = 10;
+	float xspeed = 6;
+	float yspeed = 2;
+	bool doCollision = false;
+	void AddForce(float xSpeed, float ySpeed);
 	void update();
 	void draw();
 
+	
 };

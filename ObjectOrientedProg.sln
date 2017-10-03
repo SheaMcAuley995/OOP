@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01-Encapsulation", "ObjectO
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02-UpdateDrawParadigm", "02-UpdateDrawParadigm\02-UpdateDrawParadigm.vcxproj", "{268B4A5B-5662-4C21-956B-EDACC9FF8C74}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HityBlock", "HityBlock\HityBlock.vcxproj", "{F2FAD836-2AA8-43AA-A580-9635E49EF919}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{268B4A5B-5662-4C21-956B-EDACC9FF8C74}.Release|x64.Build.0 = Release|x64
 		{268B4A5B-5662-4C21-956B-EDACC9FF8C74}.Release|x86.ActiveCfg = Release|Win32
 		{268B4A5B-5662-4C21-956B-EDACC9FF8C74}.Release|x86.Build.0 = Release|Win32
+		{F2FAD836-2AA8-43AA-A580-9635E49EF919}.Debug|x64.ActiveCfg = Debug|x64
+		{F2FAD836-2AA8-43AA-A580-9635E49EF919}.Debug|x64.Build.0 = Debug|x64
+		{F2FAD836-2AA8-43AA-A580-9635E49EF919}.Debug|x86.ActiveCfg = Debug|Win32
+		{F2FAD836-2AA8-43AA-A580-9635E49EF919}.Debug|x86.Build.0 = Debug|Win32
+		{F2FAD836-2AA8-43AA-A580-9635E49EF919}.Release|x64.ActiveCfg = Release|x64
+		{F2FAD836-2AA8-43AA-A580-9635E49EF919}.Release|x64.Build.0 = Release|x64
+		{F2FAD836-2AA8-43AA-A580-9635E49EF919}.Release|x86.ActiveCfg = Release|Win32
+		{F2FAD836-2AA8-43AA-A580-9635E49EF919}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
