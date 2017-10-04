@@ -16,10 +16,10 @@ void Player::update()
 	}
 	// x = 775
 	// y = 575
-	xspeed = 180 * sfw::getDeltaTime();
-	yspeed = 180 * sfw::getDeltaTime();
+	xspeed = 250 * sfw::getDeltaTime();
+	yspeed = 350 * sfw::getDeltaTime();
 	// ATTACK
-	if (sfw::getKey(KeyDown) && isGrowing == false && isShirnking != true && cooldownPOWER != true)
+	if (sfw::getKey(KeyShoot) && isGrowing == false && isShirnking != true && cooldownPOWER != true)
 	{
 		safecooldown = 10;
 		isGrowing = true;
@@ -58,99 +58,30 @@ void Player::update()
 
 
 
-	//sfw::drawLine(115, 155, 155 + platleng, 155);
-	if (y >= 155 && x >= 115 && x < 115 + platleng && isFalling == true && isPlate != true)
+
+
+	if (WhichPlat == 0)
 	{
-		if (sfw::getKey(KeyUp) && isJumping == false && isFalling != true)
-		{
-			isJumping = true;
-		}
-		if (isJumping == true)
-		{
-			y += yspeed;
-			if (y > 200 + 200)
-			{
-				isFalling = true;
-				isJumping = false;
-			}
-		}
-		if (isFalling == true)
-		{
-			y -= yspeed;
-			if (y <= 35 + 135)
-			{
-				isFalling = false;
-			}
-
-		}
-		if (sfw::getKey(KeyRight) && x <= 760)
-		{
-			x += xspeed;
-
-		}
-		if (sfw::getKey(KeyLeft) && x >= 40)
-		{
-			x -= xspeed;
-		}
-		if (x <= 115 && x >= 115 + platleng)
-		{
-			y = 114;
-		}
-		isPlate = true;
-	}
-	if (y >= 155 && x >= 115 && x < 115 + platleng && isPlate == true)
-	{
-		if (sfw::getKey(KeyUp) && isJumping == false && isFalling != true)
-		{
-			isJumping = true;
-		}
-		if (isJumping == true)
-		{
-			y += yspeed;
-			if (y > 200 + 140)
-			{
-				isFalling = true;
-				isJumping = false;
-			}
-		}
-		if (isFalling == true)
-		{
-			y -= yspeed;
-			if (y <= 35 + 140)
-			{
-				isFalling = false;
-			}
-
-		}
-		if (sfw::getKey(KeyRight) && x <= 760)
-		{
-			x += xspeed;
-
-		}
-		if (sfw::getKey(KeyLeft) && x >= 40)
-		{
-			x -= xspeed;
-		}
-		if (x <= 115 && x >= 115 + platleng)
-		{
-			y = 114;
-		}
-	}
-
-	else {
 
 		if (sfw::getKey(KeyUp) && isJumping == false && isFalling != true)
 		{
 			isJumping = true;
 		}
+
 		if (isJumping == true)
 		{
+
 			y += yspeed;
-			if (y > 200)
+			if (y > 300)
 			{
+
 				isFalling = true;
 				isJumping = false;
 			}
+		}
+		if (sfw::getKey(KeyDown))
+		{
+			isFalling = true;
 		}
 		if (isFalling == true)
 		{
@@ -159,138 +90,32 @@ void Player::update()
 			{
 				isFalling = false;
 			}
+		}
 
-		}
-		if (sfw::getKey(KeyRight) && x <= 760)
-		{
-			x += xspeed;
 
-		}
-		if (sfw::getKey(KeyLeft) && x >= 40)
-		{
-			x -= xspeed;
-		}
-	}
-	//sfw::drawLine(475, 155, 475 + platleng, 155);
-	if (y >= 155 && x >= 475 && x < 475 + platleng && isFalling == true && isPlate != true)
+	if (isFalling == true)
 	{
-		if (sfw::getKey(KeyUp) && isJumping == false && isFalling != true)
-		{
-			isJumping = true;
-		}
-		if (isJumping == true)
-		{
-			y += yspeed;
-			if (y > 200 + 200)
-			{
-				isFalling = true;
-				isJumping = false;
-			}
-		}
-		if (isFalling == true)
-		{
-			y -= yspeed;
-			if (y <= 35 + 135)
-			{
-				isFalling = false;
-			}
-
-		}
-		if (sfw::getKey(KeyRight) && x <= 760)
-		{
-			x += xspeed;
-
-		}
-		if (sfw::getKey(KeyLeft) && x >= 40)
-		{
-			x -= xspeed;
-		}
-		if (x <= 115 && x >= 115 + platleng)
-		{
-			y = 114;
-		}
-		isPlate = true;
-	}
-	if (y >= 155 && x >= 475 && x < 475 + platleng && isPlate == true)
-	{
-		if (sfw::getKey(KeyUp) && isJumping == false && isFalling != true)
-		{
-			isJumping = true;
-		}
-		if (isJumping == true)
-		{
-			y += yspeed;
-			if (y > 200 + 140)
-			{
-				isFalling = true;
-				isJumping = false;
-			}
-		}
-		if (isFalling == true)
-		{
-			y -= yspeed;
-			if (y <= 35 + 140)
-			{
-				isFalling = false;
-			}
-
-		}
-		if (sfw::getKey(KeyRight) && x <= 760)
-		{
-			x += xspeed;
-
-		}
-		if (sfw::getKey(KeyLeft) && x >= 40)
-		{
-			x -= xspeed;
-		}
-		if (x <= 115 && x >= 115 + platleng)
-		{
-			y = 114;
-		}
-	}
-
-	else {
-
-		if (sfw::getKey(KeyUp) && isJumping == false && isFalling != true)
-		{
-			isJumping = true;
-		}
-		if (isJumping == true)
-		{
-			y += yspeed;
-			if (y > 200)
-			{
-				isFalling = true;
-				isJumping = false;
-			}
-		}
-		if (isFalling == true)
-		{
 			y -= yspeed;
 			if (y <= 35)
 			{
 				isFalling = false;
 			}
-
 		}
-		if (sfw::getKey(KeyRight) && x <= 760)
-		{
-			x += xspeed;
-
-		}
-		if (sfw::getKey(KeyLeft) && x >= 40)
-		{
-			x -= xspeed;
-		}
+		
 
 	}
-	//if (y >= 35 && (x <= 115 || (x > 115 && x <= 475) || x > 475 + platleng))
-	//{
-	//	y -= 8;
-	//}
+	if (sfw::getKey(KeyRight) && x <= 760)
+	{
+		x += xspeed;
 
+	}
+	if (sfw::getKey(KeyLeft) && x >= 40)
+	{
+		x -= xspeed;
+	}
 }
+
+
 
 
 
@@ -307,17 +132,17 @@ void Player::draw()
 
 	//  BOT LEFT LINE
 	//             x1   y1   x2             y2
-	sfw::drawLine(115, 155, 115+platleng, 155);
+	sfw::drawLine(25, 315, 775, 315);
 	//y 155
 
 	// MIDDLE LINE
 	//             x1   y1   x2           y2
-	sfw::drawLine(295, 295, 295+platleng, 295);
+	//sfw::drawLine(295, 295, 295+platleng, 295);
 	//y 295
 
 	// BOT RIGHT LINE
 	//             x1   y1   x2            y2
-	sfw::drawLine(475, 155, 475+platleng, 155);
+	//sfw::drawLine(475, 155, 475+platleng, 155);
 	// y 155
 
 

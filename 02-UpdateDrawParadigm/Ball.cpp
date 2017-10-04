@@ -4,7 +4,6 @@
 #include "glm\glm.hpp"
 #include <random>
 #include <time.h>
-#include <Windows.h>
 
 void Ball::AddForce(float xSpeed, float ySpeed)
 {
@@ -100,20 +99,31 @@ void Ball::update(Player &p1, Player &p2)
 
 void Ball::draw(Player &p1, Player &p2)
 {
-	if (CheckCollision(p1) || CheckCollision(p2))
+	if (CheckCollision(p1) || CheckCollision(p2) && (p1.isDead == true || p2.isDead == true))
 	{
-		if (p1.isDead == true || p2.isDead == true)
-		{
-			Sleep(50);
+		
 			sfw::drawCircle(x, y, radius);
-			sfw::setBackgroundColor(RED);
+			if (p1.isDead == true && CheckCollision(p1))
+			{
+				
+				sfw::drawCircle(x, y, radius);
+				sfw::setBackgroundColor(RED);
+				p1.x = 0;
+				p1.y = 0;
+			}
+			if (p2.isDead == true && CheckCollision(p2))
+			{
+				
+				sfw::drawCircle(x, y, radius);
+				sfw::setBackgroundColor(RED);
+				p2.x = 0;
+				p2.y = 0;
+			}
 		}
-
-		else
-		{
-			sfw::setBackgroundColor(BLACK);
-			sfw::drawCircle(x, y, radius);
-		}
+	else
+	{
+		sfw::setBackgroundColor(BLACK);
+		sfw::drawCircle(x, y, radius);
 	}
 }
 

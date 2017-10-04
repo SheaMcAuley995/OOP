@@ -6,11 +6,15 @@ class Player
 public:
 	float x;
 	float y;
+	int Jump = 82;
+	int JumpHi = 1;
+	int WhichPlat = 0;
 	const int platleng = 140;
 	char KeyUp;
 	char KeyDown;
 	char KeyRight;
 	char KeyLeft;
+	char KeyShoot;
 	bool isJumping = false;
 	bool isFalling = false;
 	bool isGrowing = false;
@@ -25,6 +29,8 @@ public:
 	void AddForce(float xSpeed, float ySpeed);
 	void update();
 	void draw();
-	bool isPlate = false;
+	bool isPlate1 = false;
+	bool isPlate2 = false;
+	bool isGround = true;
 	bool isDead = false;
 };

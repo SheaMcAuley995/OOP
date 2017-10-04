@@ -22,7 +22,8 @@ int main()
 	P1.KeyUp = 'W';
 	P1.KeyLeft = 'A';
 	P1.KeyRight = 'D';
-	P1.KeyDown = 'Q';
+	P1.KeyShoot = 'Q';
+	P1.KeyDown = 'S';
 	P1.isDead = false;
 	P2.x = 650;
 	P2.y = 35;
@@ -30,7 +31,8 @@ int main()
 	P2.KeyUp = 'I';
 	P2.KeyLeft = 'J';
 	P2.KeyRight = 'L';
-	P2.KeyDown = 'U';
+	P2.KeyShoot = 'U';
+	P2.KeyDown = 'K';
 
 	while (sfw::stepContext())
 	{
